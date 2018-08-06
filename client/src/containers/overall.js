@@ -22,6 +22,14 @@ class Overall extends Component {
       );
     }
 
+    if (this.props.overallData === "Same Parties") {
+      return (
+        <div>
+          <p>That was very unlikely!</p>
+        </div>
+      );
+    }
+
     return (
       <div>
         <div>
@@ -38,6 +46,7 @@ class Overall extends Component {
                 this.props.overallData[1].overall.elo,
                 this.props.overallData[1]._id
               );
+              this.props.fetchOverallData();
             }}
           >
             Vote for First Restaurant
@@ -56,6 +65,7 @@ class Overall extends Component {
                 this.props.overallData[0].overall.elo,
                 this.props.overallData[0]._id
               );
+              this.props.fetchOverallData();
             }}
           >
             Vote for Second Restaurant

@@ -27,7 +27,7 @@ export default function(state = null, action) {
         headers: {
           "Content-Type": "application/json"
         }
-      });
+      }).then(console.log("Data posted!"));
 
       axios({
         method: "post",
@@ -36,7 +36,7 @@ export default function(state = null, action) {
         headers: {
           "Content-Type": "application/json"
         }
-      });
+      }).then(console.log("Data posted!"));
 
       return [
         {

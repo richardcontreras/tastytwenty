@@ -47,12 +47,14 @@ app.post("/api", (req, res) => {
 });
 
 app.post("/api/update/:id", (req, res) => {
-  console.log(req.body);
   const newElo = req.body.newElo;
-  Restaurant.findById(req.params.id).then(post => {
-    post.overall.elo = newElo;
-    post.save();
-  });
+  Restaurant.findById(req.params.id)
+    .then(post => {
+      post.overall.elo = newElo;
+      post.save();
+    })
+    .then(response => res.send(response))
+    .catch(console.log("There was an error!"));
 });
 
 app.listen(process.env.PORT || 3001, () => {
