@@ -20,3 +20,12 @@ export function calcFirstOverallWinner(
     payload: [winnersELO, winnersID, losersELO, losersID]
   };
 }
+
+export function fetchOverallRankings() {
+  const request = axios.get(`http://localhost:3000/api/overallrankings`);
+
+  return {
+    type: "FETCH_OVERALL_RANKINGS",
+    payload: request
+  };
+}

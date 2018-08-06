@@ -27,12 +27,31 @@ app.get("/api/get", (req, res) => {
   });
 });
 
+app.get("/api/overallrankings", (req, res) => {
+  Restaurant.find({})
+    .limit(10)
+    .sort({ "overall.elo": -1 })
+    .exec(function(err, foundRestaurants) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(foundRestaurants);
+      }
+    });
+});
+
 app.post("/api", (req, res) => {
   console.log(req);
 
   const newRestaurant = {
     name: req.body.name,
     overall: {
+      elo: 800
+    },
+    burger: {
+      elo: 800
+    },
+    pizza: {
       elo: 800
     }
   };

@@ -22,14 +22,6 @@ class Overall extends Component {
       );
     }
 
-    if (this.props.overallData === "Same Parties") {
-      return (
-        <div>
-          <p>That was very unlikely!</p>
-        </div>
-      );
-    }
-
     return (
       <div>
         <div>

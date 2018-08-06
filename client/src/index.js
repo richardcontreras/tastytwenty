@@ -11,6 +11,7 @@ import "./index.css";
 
 import Landing from "./components/landing";
 import Overall from "./containers/overall";
+import OverallRankings from "./containers/overall_rankings";
 
 import reducers from "./reducers";
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={Landing} />
         <Route path="/overall" component={Overall} />
+        <Route path="/overall" component={OverallRankings} />
       </div>
     </BrowserRouter>
   </Provider>,

@@ -1,10 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
 
 const Landing = () => (
-    <div>
-        <h1>Default Landing Page</h1>
-    </div>
-)
+  <div>
+    <h1>Default Landing Page</h1>
+  </div>
+);
 
 export default Landing;
