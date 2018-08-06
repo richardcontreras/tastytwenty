@@ -4,11 +4,12 @@ const elo = new eloRank(32);
 
 export default function(state = null, action) {
   switch (action.type) {
-    case "FIRST_OVERALL_WON":
+    case "CALCULATED_MATCHUP_WINNER":
       let playerA = action.payload[0];
       const playerAID = action.payload[1];
       let playerB = action.payload[2];
       const playerBID = action.payload[3];
+      const category = action.payload[4];
 
       const expectedScoreA = elo.getExpected(playerA, playerB);
       const expectedScoreB = elo.getExpected(playerB, playerA);
@@ -22,7 +23,7 @@ export default function(state = null, action) {
 
       axios({
         method: "post",
-        url: `http://localhost:3000/api/update/${playerAID}`,
+        url: `http://localhost:3000/api/update/${playerAID}/${category}`,
         data: { newElo: `${playerA}` },
         headers: {
           "Content-Type": "application/json"
@@ -31,7 +32,7 @@ export default function(state = null, action) {
 
       axios({
         method: "post",
-        url: `http://localhost:3000/api/update/${playerBID}`,
+        url: `http://localhost:3000/api/update/${playerBID}/${category}`,
         data: { newElo: `${playerB}` },
         headers: {
           "Content-Type": "application/json"

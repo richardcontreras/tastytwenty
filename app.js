@@ -14,11 +14,12 @@ mongoose.connect(
 );
 const Restaurant = require("./models/restaurant");
 
-app.get("/api/get", (req, res) => {
-  Restaurant.aggregate([{ $sample: { size: 2 } }]).exec(function(
-    err,
-    foundRestaurants
-  ) {
+app.get("/api/matchups/:category", (req, res) => {
+  const categoryTerm = `${req.params.category}.elo`;
+  Restaurant.aggregate([
+    { $match: { [categoryTerm]: { $exists: true } } },
+    { $sample: { size: 2 } }
+  ]).exec(function(err, foundRestaurants) {
     if (err) {
       console.log(err);
     } else {
@@ -27,8 +28,9 @@ app.get("/api/get", (req, res) => {
   });
 });
 
-app.get("/api/overallrankings", (req, res) => {
-  Restaurant.find({})
+app.get("/api/rankings/:category", (req, res) => {
+  const categoryTerm = req.params.category;
+  Restaurant.find({ [categoryTerm]: { $exists: true } })
     .limit(10)
     .sort({ "overall.elo": -1 })
     .exec(function(err, foundRestaurants) {
@@ -65,15 +67,15 @@ app.post("/api", (req, res) => {
   });
 });
 
-app.post("/api/update/:id", (req, res) => {
+app.post("/api/update/:id/:category", (req, res) => {
   const newElo = req.body.newElo;
+  const category = req.params.category;
   Restaurant.findById(req.params.id)
     .then(post => {
-      post.overall.elo = newElo;
+      post[category].elo = newElo;
       post.save();
     })
-    .then(response => res.send(response))
-    .catch(console.log("There was an error!"));
+    .then(response => res.send(response));
 });
 
 app.listen(process.env.PORT || 3001, () => {

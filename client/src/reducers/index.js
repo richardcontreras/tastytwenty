@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
-import FetchOverall from "./reducer_fetch_overall";
-import CalcFirstOverallWinner from "./reducer_calc_first_overall_winner";
-import FetchOverallRankings from "./reducer_fetch_overall_rankings";
+import FetchMatchupData from "./reducer_fetch_matchup_data";
+import CalcMatchupWinner from "./reducer_calc_matchup_winner";
+import FetchRankings from "./reducer_fetch_rankings";
 
 const rootReducer = combineReducers({
-  overallData: FetchOverall,
-  firstOverallUpdatedData: CalcFirstOverallWinner,
-  overallRankings: FetchOverallRankings
+  matchupData: FetchMatchupData,
+  updatedDataAfterMatch: CalcMatchupWinner,
+  rankings: FetchRankings
 });
 
 export default rootReducer;

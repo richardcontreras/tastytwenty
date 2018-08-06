@@ -1,31 +1,32 @@
 import axios from "axios";
 
-export function fetchOverallData() {
-  const request = axios.get(`http://localhost:3000/api/get`);
+export function fetchMatchupData(category) {
+  const request = axios.get(`http://localhost:3000/api/matchups/${category}`);
 
   return {
-    type: "FETCH_OVERALL",
+    type: "FETCH_MATCHUP_DATA",
     payload: request
   };
 }
 
-export function calcFirstOverallWinner(
+export function calcMatchupWinner(
   winnersELO,
   winnersID,
   losersELO,
-  losersID
+  losersID,
+  category
 ) {
   return {
-    type: "FIRST_OVERALL_WON",
-    payload: [winnersELO, winnersID, losersELO, losersID]
+    type: "CALCULATED_MATCHUP_WINNER",
+    payload: [winnersELO, winnersID, losersELO, losersID, category]
   };
 }
 
-export function fetchOverallRankings() {
-  const request = axios.get(`http://localhost:3000/api/overallrankings`);
+export function fetchRankings(category) {
+  const request = axios.get(`http://localhost:3000/api/rankings/${category}`);
 
   return {
-    type: "FETCH_OVERALL_RANKINGS",
+    type: "FETCH_RANKINGS",
     payload: request
   };
 }

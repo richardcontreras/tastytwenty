@@ -1,31 +1,31 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchOverallRankings } from "../actions/index";
+import { fetchRankings } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 import axios from "axios";
 
-class OverallRankings extends Component {
+class Rankings extends Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.fetchOverallRankings();
+    this.props.fetchRankings(`${this.props.category}`);
   }
 
   renderList() {
-    return this.props.overallRankings.map(item => {
+    return this.props.rankings.map(item => {
       return (
         <li key={item._id}>
-          {item.name} ({item.overall.elo})
+          {item.name} ({item[`${this.props.category}`].elo})
         </li>
       );
     });
   }
 
   render() {
-    if (!this.props.overallRankings) {
+    if (!this.props.rankings) {
       return <div>Loading...</div>;
     }
 
@@ -40,14 +40,14 @@ class OverallRankings extends Component {
 
 function mapStateToProps(state) {
   return {
-    overallRankings: state.overallRankings
+    rankings: state.rankings
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchOverallRankings: fetchOverallRankings
+      fetchRankings: fetchRankings
     },
     dispatch
   );
@@ -56,4 +56,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(OverallRankings);
+)(Rankings);

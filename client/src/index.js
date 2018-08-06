@@ -10,8 +10,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
 import Landing from "./components/landing";
-import Overall from "./containers/overall";
-import OverallRankings from "./containers/overall_rankings";
+import Matchup from "./containers/matchup";
+import Rankings from "./containers/rankings";
 
 import reducers from "./reducers";
 
@@ -22,8 +22,16 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Route exact path="/" component={Landing} />
-        <Route path="/overall" component={Overall} />
-        <Route path="/overall" component={OverallRankings} />
+        <Route
+          path="/overall"
+          render={props => (
+            <Matchup category="overall" matchupHeader="Overall" />
+          )}
+        />
+        <Route
+          path="/overall"
+          render={props => <Rankings category="overall" />}
+        />
       </div>
     </BrowserRouter>
   </Provider>,
