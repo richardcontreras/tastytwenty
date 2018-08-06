@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import FetchOverall from "./reducer_fetch_overall";
-import FirstOverallWon from "./reducer_first_overall_won";
+import CalcFirstOverallWinner from "./reducer_calc_first_overall_winner";
 
 const rootReducer = combineReducers({
   overallData: FetchOverall,
-  firstOverallWonUpdatedData: FirstOverallWon
+  firstOverallUpdatedData: CalcFirstOverallWinner
 });
 
 export default rootReducer;

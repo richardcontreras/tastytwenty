@@ -9,7 +9,12 @@ export function fetchOverallData() {
   };
 }
 
-export function firstOverallWon(winnersELO, winnersID, losersELO, losersID) {
+export function calcFirstOverallWinner(
+  winnersELO,
+  winnersID,
+  losersELO,
+  losersID
+) {
   return {
     type: "FIRST_OVERALL_WON",
     payload: [winnersELO, winnersID, losersELO, losersID]

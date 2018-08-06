@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchOverallData, firstOverallWon } from "../actions/index";
+import { fetchOverallData, calcFirstOverallWinner } from "../actions/index";
 import { bindActionCreators } from "redux";
 import axios from "axios";
 
@@ -32,7 +32,7 @@ class Overall extends Component {
           </p>
           <button
             onClick={() => {
-              this.props.firstOverallWon(
+              this.props.calcFirstOverallWinner(
                 this.props.overallData[0].overall.elo,
                 this.props.overallData[0]._id,
                 this.props.overallData[1].overall.elo,
@@ -48,7 +48,18 @@ class Overall extends Component {
               this.props.overallData[1].overall.elo
             })
           </p>
-          <button>Vote for Second Restaurant</button>
+          <button
+            onClick={() => {
+              this.props.calcFirstOverallWinner(
+                this.props.overallData[1].overall.elo,
+                this.props.overallData[1]._id,
+                this.props.overallData[0].overall.elo,
+                this.props.overallData[0]._id
+              );
+            }}
+          >
+            Vote for Second Restaurant
+          </button>
         </div>
       </div>
     );
@@ -58,7 +69,7 @@ class Overall extends Component {
 function mapStateToProps(state) {
   return {
     overallData: state.overallData,
-    firstOverallWonUpdatedData: state.firstOverallWonUpdatedData
+    firstOverallUpdatedData: state.firstOverallUpdatedData
   };
 }
 
@@ -66,7 +77,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       fetchOverallData: fetchOverallData,
-      firstOverallWon: firstOverallWon
+      calcFirstOverallWinner: calcFirstOverallWinner
     },
     dispatch
   );
