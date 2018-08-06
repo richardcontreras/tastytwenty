@@ -28,15 +28,15 @@ class Matchup extends Component {
           <h1>Best {this.props.matchupHeader}</h1>
           <p>
             First Restaurant: {this.props.matchupData[0].name} ({
-              this.props.matchupData[0].overall.elo
+              this.props.matchupData[0][`${this.props.category}`].elo
             })
           </p>
           <button
             onClick={() => {
               this.props.calcMatchupWinner(
-                this.props.matchupData[0].overall.elo,
+                this.props.matchupData[0][`${this.props.category}`].elo,
                 this.props.matchupData[0]._id,
-                this.props.matchupData[1].overall.elo,
+                this.props.matchupData[1][`${this.props.category}`].elo,
                 this.props.matchupData[1]._id,
                 this.props.category
               );
@@ -48,15 +48,15 @@ class Matchup extends Component {
 
           <p>
             Second Restaurant: {this.props.matchupData[1].name} ({
-              this.props.matchupData[1].overall.elo
+              this.props.matchupData[1][`${this.props.category}`].elo
             })
           </p>
           <button
             onClick={() => {
               this.props.calcMatchupWinner(
-                this.props.matchupData[1].overall.elo,
+                this.props.matchupData[1][`${this.props.category}`].elo,
                 this.props.matchupData[1]._id,
-                this.props.matchupData[0].overall.elo,
+                this.props.matchupData[0][`${this.props.category}`].elo,
                 this.props.matchupData[0]._id,
                 this.props.category
               );

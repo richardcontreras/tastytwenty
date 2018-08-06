@@ -32,6 +32,21 @@ ReactDOM.render(
           path="/overall"
           render={props => <Rankings category="overall" />}
         />
+
+        <Route
+          path="/burger"
+          render={props => <Matchup category="burger" matchupHeader="Burger" />}
+        />
+        <Route
+          path="/burger"
+          render={props => <Rankings category="burger" />}
+        />
+
+        <Route
+          path="/pizza"
+          render={props => <Matchup category="pizza" matchupHeader="Pizza" />}
+        />
+        <Route path="/pizza" render={props => <Rankings category="pizza" />} />
       </div>
     </BrowserRouter>
   </Provider>,

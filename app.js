@@ -32,7 +32,7 @@ app.get("/api/rankings/:category", (req, res) => {
   const categoryTerm = req.params.category;
   Restaurant.find({ [categoryTerm]: { $exists: true } })
     .limit(10)
-    .sort({ "overall.elo": -1 })
+    .sort({ [`${categoryTerm}.elo`]: -1 })
     .exec(function(err, foundRestaurants) {
       if (err) {
         console.log(err);
