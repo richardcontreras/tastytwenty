@@ -30,23 +30,10 @@ ReactDOM.render(
         />
         <Route
           path="/overall"
-          render={props => <Rankings category="overall" />}
+          render={props => (
+            <Rankings category="overall" rankingsHeader="Overall" />
+          )}
         />
-
-        <Route
-          path="/burger"
-          render={props => <Matchup category="burger" matchupHeader="Burger" />}
-        />
-        <Route
-          path="/burger"
-          render={props => <Rankings category="burger" />}
-        />
-
-        <Route
-          path="/pizza"
-          render={props => <Matchup category="pizza" matchupHeader="Pizza" />}
-        />
-        <Route path="/pizza" render={props => <Rankings category="pizza" />} />
       </div>
     </BrowserRouter>
   </Provider>,

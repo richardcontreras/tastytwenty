@@ -65,6 +65,13 @@ class Matchup extends Component {
           >
             Vote for Second Restaurant
           </button>
+          <div>
+            <button
+              onClick={() => this.props.fetchMatchupData(this.props.category)}
+            >
+              Skip Matchup
+            </button>
+          </div>
         </div>
       </div>
     );

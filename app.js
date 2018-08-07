@@ -79,5 +79,5 @@ app.post("/api/update/:id/:category", (req, res) => {
 });
 
 app.listen(process.env.PORT || 3001, () => {
-  console.log("Chow champs is up and running on Port 3001...");
+  console.log("Tasty Twenty is up and running on Port 3001...");
 });
