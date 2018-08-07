@@ -31,7 +31,7 @@ app.get("/api/matchups/:category", (req, res) => {
 app.get("/api/rankings/:category", (req, res) => {
   const categoryTerm = req.params.category;
   Restaurant.find({ [categoryTerm]: { $exists: true } })
-    .limit(10)
+    .limit(20)
     .sort({ [`${categoryTerm}.elo`]: -1 })
     .exec(function(err, foundRestaurants) {
       if (err) {
@@ -42,30 +42,34 @@ app.get("/api/rankings/:category", (req, res) => {
     });
 });
 
-app.post("/api", (req, res) => {
-  console.log(req);
+const newRestaurant = {
+  name: "Q Restaurant and Bar",
+  website: "http://q-portland.com/",
+  city: "Portland",
+  address: "828 SW 2nd Ave",
+  overall: {
+    elo: 800
+  },
 
-  const newRestaurant = {
-    name: req.body.name,
-    overall: {
-      elo: 800
-    },
-    burger: {
-      elo: 800
-    },
-    pizza: {
-      elo: 800
-    }
-  };
+  chicken: {
+    elo: 800
+  },
 
-  Restaurant.create(newRestaurant, (err, newlyCreated) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(newlyCreated);
-    }
-  });
-});
+  seafood: {
+    elo: 800
+  },
+  steak: {
+    elo: 800
+  }
+};
+
+// Restaurant.create(newRestaurant, (err, newlyCreated) => {
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log(newlyCreated);
+//   }
+// });
 
 app.post("/api/update/:id/:category", (req, res) => {
   const newElo = req.body.newElo;

@@ -8,85 +8,91 @@ const restaurantSchema = new mongoose.Schema({
   overall: {
     elo: Number
   },
-  burger: {
-    elo: Number
-  },
-  pizza: {
-    elo: Number
-  },
-  tacos: {
-    elo: Number
-  },
-  padthai: {
-    elo: Number
-  },
-  tamales: {
-    elo: Number
-  },
-  generaltso: {
-    elo: Number
-  },
-  dimsum: {
-    elo: Number
-  },
-  omelette: {
-    elo: Number
-  },
   bagel: {
     elo: Number
   },
-  coffee: {
+  bbq: {
     elo: Number
   },
-  brunch: {
+  breakfast: {
     elo: Number
   },
-  vegan: {
+  brewpub: {
     elo: Number
   },
-  sandwich: {
-    elo: Number
-  },
-  fries: {
-    elo: Number
-  },
-  seafood: {
-    elo: Number
-  },
-  icecream: {
-    elo: Number
-  },
-  sushi: {
+  burger: {
     elo: Number
   },
   chicken: {
     elo: Number
   },
-  wings: {
+  chinese: {
     elo: Number
   },
-  ribs: {
+  coffee: {
+    elo: Number
+  },
+  deli: {
+    elo: Number
+  },
+  dessert: {
+    elo: Number
+  },
+  dimsum: {
+    elo: Number
+  },
+  fastfood: {
+    elo: Number
+  },
+  foodtruck: {
+    elo: Number
+  },
+  hawaiian: {
+    elo: Number
+  },
+  icecream: {
+    elo: Number
+  },
+  indian: {
+    elo: Number
+  },
+  italian: {
+    elo: Number
+  },
+  korean: {
+    elo: Number
+  },
+  latin: {
+    elo: Number
+  },
+  mediterranean: {
+    elo: Number
+  },
+  mexican: {
+    elo: Number
+  },
+  noodles: {
+    elo: Number
+  },
+  pizza: {
+    elo: Number
+  },
+  seafood: {
     elo: Number
   },
   steak: {
     elo: Number
   },
-  pasta: {
+  sushi: {
     elo: Number
   },
-  pancakes: {
+  thai: {
     elo: Number
   },
-  pho: {
+  vegan: {
     elo: Number
   },
-  curry: {
-    elo: Number
-  },
-  shawarma: {
-    elo: Number
-  },
-  koreanbbq: {
+  vietnamese: {
     elo: Number
   }
 });

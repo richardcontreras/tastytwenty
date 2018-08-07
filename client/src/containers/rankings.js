@@ -31,13 +31,8 @@ class Rankings extends Component {
 
     return (
       <div>
-        <h1>
-          Best{" "}
-          {this.props.category.charAt(0).toUpperCase() +
-            this.props.category.slice(1)}{" "}
-          Rankings:
-        </h1>
-        <ul>{this.renderList()}</ul>
+        <h1>Best {this.props.rankingsHeader} Rankings:</h1>
+        <ol>{this.renderList()}</ol>
       </div>
     );
   }
