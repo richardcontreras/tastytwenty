@@ -41,6 +41,10 @@ body {
   text-align: center;
 }
 
+.desktop-masonry {
+  display: none;
+}
+
 .about-card-div {
   box-shadow: 1.5px 1.5px 5px gray;
 }
@@ -180,6 +184,15 @@ ol {
 
   .voting-div-background {
     min-height: 118px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .mobile-no-masonry {
+    display: none;
+  }
+
+  .desktop-masonry {
+    display: block;
   }
 }
 
