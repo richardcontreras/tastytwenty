@@ -15,7 +15,7 @@ body {
 }
 
 #landingDiv {
-  background-image: url("https://image.ibb.co/nezbFp/twentyvertical.jpg");
+  background-image: url("https://image.ibb.co/joTWgU/twentyhorizontal.jpg");
   color: white;
   height: 100vh;
   background-position: center;
@@ -25,14 +25,16 @@ body {
 
 #landingHeadline {
   font-family: "Archivo Black", sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-shadow: 0.5px 0.5px black;
-  padding-top: 2rem;
+  padding-top: 3rem;
   text-align: center;
 }
 
 #landingSubtitle {
+  margin: 2rem 5px;
   text-align: center;
+  font-size: 1.25rem;
 }
 
 #landingButtonGroup {
@@ -58,8 +60,7 @@ body {
   top: 0px;
   text-decoration: none;
   font-size: 25px;
-  margin: 0 10px;
-  border: 2px solid black;
+  border: 1.5px solid black;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -91,14 +92,32 @@ body {
   transition: All 100ms ease;
 }
 
+.voting-div-background:focus {
+  outline: 0;
+}
+
 .voting-div-background {
   background: linear-gradient(to bottom right, #989898, #f0f0f0, #989898);
   padding: 20px;
 }
 
+#versusH3 {
+  margin-top: auto;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding-top: 6px;
+  padding-left: 1px;
+  box-shadow: 1.5px 1.5px gray;
+}
 #skipMatchup {
   margin: 10px 0 0 10px;
   background-color: transparent;
+}
+
+#skipMatchup:focus {
+  outline: 0;
 }
 
 ol {
@@ -125,7 +144,31 @@ ol {
   color: black;
 }
 
+#versusH3 {
+  margin-top: 47%;
+  text-align: center;
+}
+
 @media screen and (min-width: 576px) {
+  #companyName {
+    padding-top: 0;
+    font-size: 2.5rem;
+  }
+
+  #landingHeadline {
+    margin: 0 20px;
+    padding-top: 9rem;
+    font-size: 2.5rem;
+  }
+
+  #landingSubtitle {
+    margin-top: 1.5rem;
+  }
+
+  #landingButtonGroup {
+    margin-top: 5rem;
+  }
+
   #landingDiv {
     background-image: url("https://image.ibb.co/joTWgU/twentyhorizontal.jpg");
     color: white;
@@ -135,8 +178,13 @@ ol {
     background-size: cover;
   }
 
+  .voting-div-background {
+    min-height: 118px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
   #landingHeadline {
-    padding-top: 3rem;
-    font-size: 2.5rem;
+    font-size: 2.75rem;
   }
 }

@@ -28,8 +28,8 @@ export default class NavigationBar extends Component {
     return (
       <div>
         <Navbar color="white" light expand="md">
-          <NavbarBrand id="companyName" href="/">
-            Tasty20
+          <NavbarBrand id="companyName" tag={Link} to="/">
+            TASTY20
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
