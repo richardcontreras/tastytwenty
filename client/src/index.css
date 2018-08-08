@@ -4,13 +4,52 @@ body {
   font-family: "Questrial", sans-serif;
 }
 
+.page-boundary {
+  max-width: 1200px;
+  margin: auto;
+}
+
 #companyName {
   font-family: "Monofett", cursive;
   font-size: 2rem;
 }
 
-.page-background {
-  background: linear-gradient(to bottom right, #d7cec7, #efebe8, #d7cec7);
+#landingDiv {
+  background-image: url("https://image.ibb.co/nezbFp/twentyvertical.jpg");
+  color: white;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#landingHeadline {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 2rem;
+  text-shadow: 0.5px 0.5px black;
+  padding-top: 2rem;
+  text-align: center;
+}
+
+#landingSubtitle {
+  text-align: center;
+}
+
+#landingButtonGroup {
+  text-align: center;
+}
+
+.about-card-div {
+  box-shadow: 1.5px 1.5px 5px gray;
+}
+.maroon-header-background {
+  background-color: #8d1f5e;
+  color: white;
+}
+
+.blue-header-background {
+  background-color: #003f74;
+  color: white;
 }
 
 .choice-div {
@@ -53,14 +92,12 @@ body {
 }
 
 .voting-div-background {
-  background: linear-gradient(to bottom right, tan, #d6bb97, tan);
+  background: linear-gradient(to bottom right, #989898, #f0f0f0, #989898);
   padding: 20px;
 }
 
 #skipMatchup {
   margin: 10px 0 0 10px;
-  border: 2px solid #76323f;
-  border-radius: 5px;
   background-color: transparent;
 }
 
@@ -76,7 +113,7 @@ ol {
 .rankingListItem:before {
   margin-right: 10px;
   content: counter(item);
-  background: black;
+  background: #003f74;
   border-radius: 100%;
   color: white;
   width: 1.2em;
@@ -86,4 +123,20 @@ ol {
 
 #nameInRankings {
   color: black;
+}
+
+@media screen and (min-width: 576px) {
+  #landingDiv {
+    background-image: url("https://image.ibb.co/joTWgU/twentyhorizontal.jpg");
+    color: white;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #landingHeadline {
+    padding-top: 3rem;
+    font-size: 2.5rem;
+  }
 }

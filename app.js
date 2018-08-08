@@ -43,28 +43,22 @@ app.get("/api/rankings/:category", (req, res) => {
 });
 
 const newRestaurant = {
-  name: "Bottle + Kitchen",
-  website: "http://www.bottlekitchen.com/dinner/",
+  name: "Bowery Bagels",
+  website: "https://bowerybagels.com/",
   city: "Portland",
-  address: "50 SW Morrison St",
   overall: {
+    elo: 800
+  },
+
+  bagel: {
     elo: 800
   },
 
   breakfast: {
     elo: 800
   },
-  brewpub: {
-    elo: 800
-  },
 
-  pizza: {
-    elo: 800
-  },
-  seafood: {
-    elo: 800
-  },
-  steak: {
+  coffee: {
     elo: 800
   }
 };

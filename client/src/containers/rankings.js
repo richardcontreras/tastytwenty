@@ -22,12 +22,13 @@ class Rankings extends Component {
 
   render() {
     if (!this.props.rankings) {
-      return <div className="page-background">Loading...</div>;
+      return <div>Loading...</div>;
     }
 
     return (
-      <div className="page-background">
+      <div>
         <h1>Best {this.props.rankingsHeader} Rankings:</h1>
+        <p>Rating in parentheses after each restaurant name</p>
         <ol>{this.renderList()}</ol>
       </div>
     );

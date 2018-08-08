@@ -40,12 +40,12 @@ export default class NavigationBar extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/rankingcategories">
+                <NavLink tag={Link} to="/rankings">
                   Rankings
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} to="/vote">
+                <NavLink tag={Link} to="/voting">
                   Vote
                 </NavLink>
               </NavItem>

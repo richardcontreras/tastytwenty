@@ -10,8 +10,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
 import Landing from "./components/landing";
+import About from "./components/about";
 import NavigationBar from "./components/navbar.js";
 import RankingCategories from "./components/ranking_categories";
+import VotingCategories from "./components/voting_categories";
+
 import Matchup from "./containers/matchup";
 import Rankings from "./containers/rankings";
 import reducers from "./reducers";
@@ -21,10 +24,12 @@ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
-      <div>
+      <div className="page-boundary">
         <Route path="/" component={NavigationBar} />
         <Route exact path="/" component={Landing} />
-        <Route path="/rankingcategories" component={RankingCategories} />
+        <Route path="/about" component={About} />
+        <Route path="/rankings" component={RankingCategories} />
+        <Route path="/voting" component={VotingCategories} />
         <Route
           path="/overall"
           render={props => (

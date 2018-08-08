@@ -18,7 +18,7 @@ class Matchup extends Component {
     }
 
     return (
-      <div className="page-background">
+      <div>
         <div>
           <h2>Best {this.props.matchupHeader}</h2>
           <div className="choice-div">
@@ -35,9 +35,7 @@ class Matchup extends Component {
                 this.props.fetchMatchupData(this.props.category);
               }}
             >
-              {this.props.matchupData[0].name} ({
-                this.props.matchupData[0][`${this.props.category}`].elo
-              })
+              {this.props.matchupData[0].name}
             </button>
           </div>
           <div style={{ display: "inline-block" }}>
@@ -57,9 +55,7 @@ class Matchup extends Component {
                 this.props.fetchMatchupData(this.props.category);
               }}
             >
-              {this.props.matchupData[1].name} ({
-                this.props.matchupData[1][`${this.props.category}`].elo
-              })
+              {this.props.matchupData[1].name}
             </button>
           </div>
           <div>
