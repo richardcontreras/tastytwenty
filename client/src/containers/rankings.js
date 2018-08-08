@@ -3,13 +3,7 @@ import { connect } from "react-redux";
 import { fetchRankings } from "../actions/index";
 import { bindActionCreators } from "redux";
 
-import axios from "axios";
-
 class Rankings extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchRankings(`${this.props.category}`);
   }
@@ -17,8 +11,10 @@ class Rankings extends Component {
   renderList() {
     return this.props.rankings.map(item => {
       return (
-        <li key={item._id}>
-          {item.name} ({item[`${this.props.category}`].elo})
+        <li className="rankingListItem" key={item._id}>
+          <a id="nameInRankings" href={item.website} target="_blank">
+            {item.name} ({item[`${this.props.category}`].elo})
+          </a>
         </li>
       );
     });
@@ -26,11 +22,11 @@ class Rankings extends Component {
 
   render() {
     if (!this.props.rankings) {
-      return <div>Loading...</div>;
+      return <div className="page-background">Loading...</div>;
     }
 
     return (
-      <div>
+      <div className="page-background">
         <h1>Best {this.props.rankingsHeader} Rankings:</h1>
         <ol>{this.renderList()}</ol>
       </div>

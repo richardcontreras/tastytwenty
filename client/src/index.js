@@ -10,9 +10,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
 import Landing from "./components/landing";
+import NavigationBar from "./components/navbar.js";
+import RankingCategories from "./components/ranking_categories";
 import Matchup from "./containers/matchup";
 import Rankings from "./containers/rankings";
-
 import reducers from "./reducers";
 
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
@@ -21,7 +22,9 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
+        <Route path="/" component={NavigationBar} />
         <Route exact path="/" component={Landing} />
+        <Route path="/rankingcategories" component={RankingCategories} />
         <Route
           path="/overall"
           render={props => (
@@ -29,7 +32,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/overall"
+          path="/overallrankings"
           render={props => (
             <Rankings category="overall" rankingsHeader="Overall" />
           )}
@@ -39,7 +42,7 @@ ReactDOM.render(
           render={props => <Matchup category="bagel" matchupHeader="Bagel" />}
         />
         <Route
-          path="/bagel"
+          path="/bagelrankings"
           render={props => <Rankings category="bagel" rankingsHeader="Bagel" />}
         />
         <Route
@@ -47,7 +50,7 @@ ReactDOM.render(
           render={props => <Matchup category="bbq" matchupHeader="BBQ" />}
         />
         <Route
-          path="/bbq"
+          path="/bbqrankings"
           render={props => <Rankings category="bbq" rankingsHeader="BBQ" />}
         />
 
@@ -58,7 +61,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/breakfast"
+          path="/breakfastrankings"
           render={props => (
             <Rankings category="breakfast" rankingsHeader="Breakfast" />
           )}
@@ -70,7 +73,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/brewpub"
+          path="/brewpubrankings"
           render={props => (
             <Rankings category="brewpub" rankingsHeader="Brewpub" />
           )}
@@ -80,7 +83,7 @@ ReactDOM.render(
           render={props => <Matchup category="burger" matchupHeader="Burger" />}
         />
         <Route
-          path="/burger"
+          path="/burgerrankings"
           render={props => (
             <Rankings category="burger" rankingsHeader="Burger" />
           )}
@@ -92,7 +95,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/chicken"
+          path="/chickenrankings"
           render={props => (
             <Rankings category="chicken" rankingsHeader="Chicken" />
           )}
@@ -104,7 +107,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/chinese"
+          path="/chineserankings"
           render={props => (
             <Rankings category="chinese" rankingsHeader="Chinese" />
           )}
@@ -114,7 +117,7 @@ ReactDOM.render(
           render={props => <Matchup category="coffee" matchupHeader="Coffee" />}
         />
         <Route
-          path="/coffee"
+          path="/coffeerankings"
           render={props => (
             <Rankings category="coffee" rankingsHeader="Coffee" />
           )}
@@ -124,7 +127,7 @@ ReactDOM.render(
           render={props => <Matchup category="deli" matchupHeader="Deli" />}
         />
         <Route
-          path="/deli"
+          path="/delirankings"
           render={props => <Rankings category="deli" rankingsHeader="Deli" />}
         />
         <Route
@@ -134,7 +137,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/dessert"
+          path="/dessertrankings"
           render={props => (
             <Rankings category="dessert" rankingsHeader="Dessert" />
           )}
@@ -146,7 +149,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/dimsum"
+          path="/dimsumrankings"
           render={props => (
             <Rankings category="dimsum" rankingsHeader="Dim Sum" />
           )}
@@ -158,7 +161,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/fastfood"
+          path="/fastfoodrankings"
           render={props => (
             <Rankings category="fastfood" rankingsHeader="Fast Food" />
           )}
@@ -170,7 +173,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/foodtruck"
+          path="/foodtruckrankings"
           render={props => (
             <Rankings category="foodtruck" rankingsHeader="Food Truck" />
           )}
@@ -182,7 +185,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/hawaiian"
+          path="/hawaiianrankings"
           render={props => (
             <Rankings category="hawaiian" rankingsHeader="Hawaiian" />
           )}
@@ -194,7 +197,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/icecream"
+          path="/icecreamrankings"
           render={props => (
             <Rankings category="icecream" rankingsHeader="Ice Cream" />
           )}
@@ -204,7 +207,7 @@ ReactDOM.render(
           render={props => <Matchup category="indian" matchupHeader="Indian" />}
         />
         <Route
-          path="/indian"
+          path="/indianrankings"
           render={props => (
             <Rankings category="indian" rankingsHeader="Indian" />
           )}
@@ -216,7 +219,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/italian"
+          path="/italianrankings"
           render={props => (
             <Rankings category="italian" rankingsHeader="Italian" />
           )}
@@ -226,7 +229,7 @@ ReactDOM.render(
           render={props => <Matchup category="korean" matchupHeader="Korean" />}
         />
         <Route
-          path="/korean"
+          path="/koreanrankings"
           render={props => (
             <Rankings category="korean" rankingsHeader="Korean" />
           )}
@@ -236,7 +239,7 @@ ReactDOM.render(
           render={props => <Matchup category="latin" matchupHeader="Latin" />}
         />
         <Route
-          path="/latin"
+          path="/latinrankings"
           render={props => <Rankings category="latin" rankingsHeader="Latin" />}
         />
         <Route
@@ -246,7 +249,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/mediterranean"
+          path="/mediterraneanrankings"
           render={props => (
             <Rankings category="mediterranean" rankingsHeader="Mediterranean" />
           )}
@@ -258,7 +261,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/mexican"
+          path="/mexicanrankings"
           render={props => (
             <Rankings category="mexican" rankingsHeader="Mexican" />
           )}
@@ -270,7 +273,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/noodles"
+          path="/noodlesrankings"
           render={props => (
             <Rankings category="noodles" rankingsHeader="Noodles" />
           )}
@@ -280,7 +283,7 @@ ReactDOM.render(
           render={props => <Matchup category="pizza" matchupHeader="Pizza" />}
         />
         <Route
-          path="/pizza"
+          path="/pizzarankings"
           render={props => <Rankings category="pizza" rankingsHeader="Pizza" />}
         />
         <Route
@@ -290,7 +293,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/seafood"
+          path="/seafoodrankings"
           render={props => (
             <Rankings category="seafood" rankingsHeader="Seafood" />
           )}
@@ -300,7 +303,7 @@ ReactDOM.render(
           render={props => <Matchup category="steak" matchupHeader="Steak" />}
         />
         <Route
-          path="/steak"
+          path="/steakrankings"
           render={props => <Rankings category="steak" rankingsHeader="Steak" />}
         />
         <Route
@@ -308,7 +311,7 @@ ReactDOM.render(
           render={props => <Matchup category="sushi" matchupHeader="Sushi" />}
         />
         <Route
-          path="/sushi"
+          path="/sushirankings"
           render={props => <Rankings category="sushi" rankingsHeader="Sushi" />}
         />
         <Route
@@ -316,7 +319,7 @@ ReactDOM.render(
           render={props => <Matchup category="thai" matchupHeader="Thai" />}
         />
         <Route
-          path="/thai"
+          path="/thairankings"
           render={props => <Rankings category="thai" rankingsHeader="Thai" />}
         />
         <Route
@@ -324,7 +327,7 @@ ReactDOM.render(
           render={props => <Matchup category="vegan" matchupHeader="Vegan" />}
         />
         <Route
-          path="/vegan"
+          path="/veganrankings"
           render={props => <Rankings category="vegan" rankingsHeader="Vegan" />}
         />
         <Route
@@ -334,7 +337,7 @@ ReactDOM.render(
           )}
         />
         <Route
-          path="/vietnamese"
+          path="/vietnameserankings"
           render={props => (
             <Rankings category="vietnamese" rankingsHeader="Vietnamese" />
           )}

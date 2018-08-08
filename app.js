@@ -43,18 +43,24 @@ app.get("/api/rankings/:category", (req, res) => {
 });
 
 const newRestaurant = {
-  name: "Q Restaurant and Bar",
-  website: "http://q-portland.com/",
+  name: "Bottle + Kitchen",
+  website: "http://www.bottlekitchen.com/dinner/",
   city: "Portland",
-  address: "828 SW 2nd Ave",
+  address: "50 SW Morrison St",
   overall: {
     elo: 800
   },
 
-  chicken: {
+  breakfast: {
+    elo: 800
+  },
+  brewpub: {
     elo: 800
   },
 
+  pizza: {
+    elo: 800
+  },
   seafood: {
     elo: 800
   },

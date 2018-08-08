@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchMatchupData, calcMatchupWinner } from "../actions/index";
 import { bindActionCreators } from "redux";
-import axios from "axios";
 
 class Matchup extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchMatchupData(this.props.category);
   }
@@ -23,50 +18,53 @@ class Matchup extends Component {
     }
 
     return (
-      <div>
+      <div className="page-background">
         <div>
-          <h1>Best {this.props.matchupHeader}</h1>
-          <p>
-            First Restaurant: {this.props.matchupData[0].name} ({
-              this.props.matchupData[0][`${this.props.category}`].elo
-            })
-          </p>
-          <button
-            onClick={() => {
-              this.props.calcMatchupWinner(
-                this.props.matchupData[0][`${this.props.category}`].elo,
-                this.props.matchupData[0]._id,
-                this.props.matchupData[1][`${this.props.category}`].elo,
-                this.props.matchupData[1]._id,
-                this.props.category
-              );
-              this.props.fetchMatchupData(this.props.category);
-            }}
-          >
-            Vote for First Restaurant
-          </button>
-
-          <p>
-            Second Restaurant: {this.props.matchupData[1].name} ({
-              this.props.matchupData[1][`${this.props.category}`].elo
-            })
-          </p>
-          <button
-            onClick={() => {
-              this.props.calcMatchupWinner(
-                this.props.matchupData[1][`${this.props.category}`].elo,
-                this.props.matchupData[1]._id,
-                this.props.matchupData[0][`${this.props.category}`].elo,
-                this.props.matchupData[0]._id,
-                this.props.category
-              );
-              this.props.fetchMatchupData(this.props.category);
-            }}
-          >
-            Vote for Second Restaurant
-          </button>
+          <h2>Best {this.props.matchupHeader}</h2>
+          <div className="choice-div">
+            <button
+              className="voting-div-background"
+              onClick={() => {
+                this.props.calcMatchupWinner(
+                  this.props.matchupData[0][`${this.props.category}`].elo,
+                  this.props.matchupData[0]._id,
+                  this.props.matchupData[1][`${this.props.category}`].elo,
+                  this.props.matchupData[1]._id,
+                  this.props.category
+                );
+                this.props.fetchMatchupData(this.props.category);
+              }}
+            >
+              {this.props.matchupData[0].name} ({
+                this.props.matchupData[0][`${this.props.category}`].elo
+              })
+            </button>
+          </div>
+          <div style={{ display: "inline-block" }}>
+            <h3>vs.</h3>
+          </div>
+          <div className="choice-div">
+            <button
+              className="voting-div-background"
+              onClick={() => {
+                this.props.calcMatchupWinner(
+                  this.props.matchupData[1][`${this.props.category}`].elo,
+                  this.props.matchupData[1]._id,
+                  this.props.matchupData[0][`${this.props.category}`].elo,
+                  this.props.matchupData[0]._id,
+                  this.props.category
+                );
+                this.props.fetchMatchupData(this.props.category);
+              }}
+            >
+              {this.props.matchupData[1].name} ({
+                this.props.matchupData[1][`${this.props.category}`].elo
+              })
+            </button>
+          </div>
           <div>
             <button
+              id="skipMatchup"
               onClick={() => this.props.fetchMatchupData(this.props.category)}
             >
               Skip Matchup
