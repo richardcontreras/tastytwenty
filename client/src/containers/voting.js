@@ -80,6 +80,25 @@ class Voting extends Component {
       _.includes(this.props.removedRestaurants, this.props.matchupData[1]._id)
     ) {
       this.props.fetchMatchupData(`${this.state.category}`);
+      return (
+        <Container>
+          <Jumbotron id="votingJumbotron" fluid>
+            <Container className="text-center" fluid>
+              <Row>
+                <Col md={{ size: 12, offset: 0 }}>
+                  <h1 className="display-3">Best {this.state.category}</h1>
+                </Col>
+                <Col
+                  id="skippingBlockedRestaurant"
+                  md={{ size: 12, offset: 0 }}
+                >
+                  <p>Fetching new matchup...</p>
+                </Col>
+              </Row>
+            </Container>
+          </Jumbotron>
+        </Container>
+      );
     }
 
     return (

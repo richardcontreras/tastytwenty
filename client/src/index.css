@@ -117,6 +117,10 @@ body {
   background: linear-gradient(to bottom right, #989898, #f0f0f0, #989898);
 }
 
+#skippingBlockedRestaurant {
+  min-height: 132.5px;
+}
+
 #skipMatchup:focus {
   outline: 0;
 }
