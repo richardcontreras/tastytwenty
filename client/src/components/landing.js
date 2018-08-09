@@ -9,13 +9,13 @@ const Landing = () => (
     </h3>
     <div id="landingButtonGroup">
       <ButtonGroup>
-        <Button href="/about" color="primary">
+        <Button href="/about" color="light">
           About
         </Button>
-        <Button href="/rankings" color="primary">
+        <Button href="/rankings" color="light">
           Rankings
         </Button>
-        <Button href="voting" color="primary">
+        <Button href="voting" color="light">
           Vote
         </Button>
       </ButtonGroup>

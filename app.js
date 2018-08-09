@@ -16,8 +16,14 @@ const Restaurant = require("./models/restaurant");
 
 app.get("/api/matchups/:category", (req, res) => {
   const categoryTerm = `${req.params.category}.elo`;
+  const ObjectId = mongoose.Types.ObjectId;
   Restaurant.aggregate([
-    { $match: { [categoryTerm]: { $exists: true } } },
+    {
+      $match: {
+        [categoryTerm]: { $exists: true },
+        _id: { $nin: [ObjectId("5b6b5188ed2749053c277095")] }
+      }
+    },
     { $sample: { size: 2 } }
   ]).exec(function(err, foundRestaurants) {
     if (err) {
@@ -29,6 +35,7 @@ app.get("/api/matchups/:category", (req, res) => {
 });
 
 app.get("/api/rankings/:category", (req, res) => {
+  console.log(req.params.category);
   const categoryTerm = req.params.category;
   Restaurant.find({ [categoryTerm]: { $exists: true } })
     .limit(20)

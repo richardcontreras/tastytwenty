@@ -30,3 +30,10 @@ export function fetchRankings(category) {
     payload: request
   };
 }
+
+export function removeRestaurant(restaurantID) {
+  return {
+    type: "REMOVED_RESTAURANT",
+    payload: restaurantID
+  };
+}

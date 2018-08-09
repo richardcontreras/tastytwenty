@@ -4,18 +4,13 @@ body {
   font-family: "Questrial", sans-serif;
 }
 
-.page-boundary {
-  max-width: 1200px;
-  margin: auto;
-}
-
 #companyName {
   font-family: "Monofett", cursive;
   font-size: 2rem;
 }
 
 #landingDiv {
-  background-image: url("https://image.ibb.co/joTWgU/twentyhorizontal.jpg");
+  background-image: url("https://images.unsplash.com/photo-1504185945330-7a3ca1380535?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2d35c4ea30a81e428e66c653748f91&auto=format&fit=crop&w=621&q=80");
   color: white;
   height: 100vh;
   background-position: center;
@@ -48,12 +43,8 @@ body {
 .about-card-div {
   box-shadow: 1.5px 1.5px 5px gray;
 }
-.maroon-header-background {
-  background: linear-gradient(to bottom right, #8d1f5e, #cd2d89, #8d1f5e);
-  color: white;
-}
 
-.blue-header-background {
+.header-background {
   background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
   color: white;
 }
@@ -123,7 +114,7 @@ body {
 }
 
 #skipMatchup {
-  background-color: white;
+  background: linear-gradient(to bottom right, #989898, #f0f0f0, #989898);
 }
 
 #skipMatchup:focus {
@@ -150,8 +141,17 @@ ol {
   display: inline-block;
 }
 
+.menu-list {
+  box-shadow: 1.5px 1.5px 5px gray;
+}
+
 #nameInRankings {
   color: black;
+}
+
+#eloRatingText {
+  color: black;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 576px) {
@@ -175,7 +175,7 @@ ol {
   }
 
   #landingDiv {
-    background-image: url("https://image.ibb.co/joTWgU/twentyhorizontal.jpg");
+    background-image: url("https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a963d29c6015992527cc43326e0e2197&auto=format&fit=crop&w=1050&q=80");
     color: white;
     height: 100vh;
     background-position: center;

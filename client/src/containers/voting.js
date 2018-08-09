@@ -1,33 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchRankings } from "../actions/index";
+import {
+  fetchMatchupData,
+  calcMatchupWinner,
+  removeRestaurant
+} from "../actions/index";
 import { bindActionCreators } from "redux";
-import { Container, FormGroup, Input } from "reactstrap";
+import { Jumbotron, Container, Col, FormGroup, Input, Row } from "reactstrap";
 
-class Rankings extends Component {
+class Voting extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { category: null };
-  }
-
-  renderList() {
-    return this.props.rankings.map(item => {
-      return (
-        <li className="rankingListItem" key={item._id}>
-          <a id="nameInRankings" href={item.website} target="_blank">
-            {item.name}
-          </a>
-        </li>
-      );
-    });
+    this.state = { category: "overall" };
   }
 
   render() {
-    if (!this.props.rankings) {
+    if (!this.props.matchupData) {
       return (
         <Container>
-          <h3>Rankings</h3>
+          <h3>Voting</h3>
           <FormGroup>
             <Input
               type="select"
@@ -37,7 +29,10 @@ class Rankings extends Component {
                 let selectedItem = document.getElementById(
                   "selectRankingCategory"
                 ).value;
-                this.props.fetchRankings(selectedItem);
+                this.props.fetchMatchupData(
+                  selectedItem,
+                  this.props.removedRestaurants
+                );
                 this.setState({ category: selectedItem });
               }}
             >
@@ -81,23 +76,92 @@ class Rankings extends Component {
 
     return (
       <Container>
-        <h1>
-          Best{" "}
-          {this.state.category.charAt(0).toUpperCase() +
-            this.state.category.slice(1)}{" "}
-          Rankings:
-        </h1>
-        <p>
-          The number in parentheses is a restaurant's{" "}
-          <a
-            id="eloRatingText"
-            href="https://en.wikipedia.org/wiki/Elo_rating_system"
-            target="_blank"
-          >
-            Elo rating
-          </a>
-        </p>
-        <p>Click on any restaurant to visit their website</p>
+        <Jumbotron id="votingJumbotron" fluid>
+          <Container className="text-center" fluid>
+            <Row>
+              <Col md={{ size: 12, offset: 0 }}>
+                <h1 className="display-3">Best {this.state.category}</h1>
+              </Col>
+              <Col md={{ size: 4, offset: 1 }} className="text-center">
+                <button
+                  className="voting-div-background choice-div"
+                  onClick={() => {
+                    this.props.calcMatchupWinner(
+                      this.props.matchupData[0][`${this.state.category}`].elo,
+                      this.props.matchupData[0]._id,
+                      this.props.matchupData[1][`${this.state.category}`].elo,
+                      this.props.matchupData[1]._id,
+                      this.state.category
+                    );
+                    this.props.fetchMatchupData(
+                      `${this.state.category}`,
+                      `${this.props.removedRestaurants}`
+                    );
+                  }}
+                >
+                  {this.props.matchupData[0].name}
+                </button>
+              </Col>
+              <Col md={{ size: 2, offset: 0 }}>
+                <p className="lead mt-4">
+                  Vote for the best {this.state.category} in Portland.
+                </p>
+              </Col>
+              <Col md={{ size: 4, offset: 0 }} className="text-center">
+                <button
+                  className="voting-div-background choice-div"
+                  onClick={() => {
+                    this.props.calcMatchupWinner(
+                      this.props.matchupData[1][`${this.state.category}`].elo,
+                      this.props.matchupData[1]._id,
+                      this.props.matchupData[0][`${this.state.category}`].elo,
+                      this.props.matchupData[0]._id,
+                      this.state.category
+                    );
+                    this.props.fetchMatchupData(
+                      `${this.state.category}`,
+                      `${this.props.removedRestaurants}`
+                    );
+                  }}
+                >
+                  {this.props.matchupData[1].name}
+                </button>
+              </Col>
+              <Col md={{ size: 4, offset: 1 }} className="text-center">
+                <button
+                  onClick={() =>
+                    this.props.removeRestaurant(this.props.matchupData[0]._id)
+                  }
+                >
+                  Don't see this restaurant again
+                </button>
+              </Col>
+              <Col md={{ size: 2, offset: 0 }}>
+                <button
+                  className="mt-4"
+                  id="skipMatchup"
+                  onClick={() =>
+                    this.props.fetchMatchupData(
+                      this.state.category,
+                      this.props.removedRestaurants
+                    )
+                  }
+                >
+                  Skip Matchup
+                </button>
+              </Col>
+              <Col md={{ size: 4, offset: 1 }} className="text-center">
+                <button
+                  onClick={() =>
+                    this.props.removeRestaurant(this.props.matchupData[1]._id)
+                  }
+                >
+                  Don't see this restaurant again
+                </button>
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
         <FormGroup>
           <Input
             type="select"
@@ -107,11 +171,16 @@ class Rankings extends Component {
               let selectedItem = document.getElementById(
                 "selectRankingCategory"
               ).value;
-              this.props.fetchRankings(selectedItem);
+              this.props.fetchMatchupData(
+                selectedItem,
+                this.props.removedRestaurants
+              );
               this.setState({ category: selectedItem });
             }}
           >
-            <option>Select a category</option>
+            <option selected value="overall">
+              Select a category
+            </option>
             <option value="overall">Overall</option>
             <option value="bagel">Bagels</option>
             <option value="bbq">BBQ</option>
@@ -145,7 +214,6 @@ class Rankings extends Component {
             <option value="vietnamese">Vietnamese</option>
           </Input>
         </FormGroup>
-        <ol>{this.renderList()}</ol>
       </Container>
     );
   }
@@ -153,14 +221,17 @@ class Rankings extends Component {
 
 function mapStateToProps(state) {
   return {
-    rankings: state.rankings
+    matchupData: state.matchupData,
+    removedRestaurants: state.removedRestaurants
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      fetchRankings: fetchRankings
+      fetchMatchupData: fetchMatchupData,
+      calcMatchupWinner: calcMatchupWinner,
+      removeRestaurant: removeRestaurant
     },
     dispatch
   );
@@ -169,4 +240,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Rankings);
+)(Voting);

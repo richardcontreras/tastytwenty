@@ -12,7 +12,7 @@ const About = () => (
   <div>
     <Container className="mobile-no-masonry">
       <Card className="about-card-div my-3">
-        <CardHeader className="maroon-header-background">
+        <CardHeader className="header-background">
           Pick your favorite restaurant
         </CardHeader>
         <CardBody>
@@ -26,7 +26,7 @@ const About = () => (
         </CardBody>
       </Card>
       <Card className="about-card-div my-3">
-        <CardHeader className="blue-header-background">
+        <CardHeader className="header-background">
           Choose from different categories
         </CardHeader>
         <CardBody>
@@ -38,22 +38,21 @@ const About = () => (
         </CardBody>
       </Card>
       <Card className="about-card-div my-3">
-        <CardHeader className="maroon-header-background">
-          View the rankings
-        </CardHeader>
+        <CardHeader className="header-background">View the rankings</CardHeader>
         <CardBody>
           <CardText>
-            Using an Elo rating system, we dynamically rank Portland restaurants
-            in real-time based on all of your votes. Although we keep track of
-            the rankings for all restaurants, only the best make it to the
-            'Tasty 20' listings.<br />
+            Using an Elo rating system (the same system used to rank chess
+            players), we dynamically rank Portland restaurants in real-time
+            based on all of your votes. Although we keep track of the rankings
+            for all restaurants, only the best make it to the "Tasty 20"
+            listings.<br />
             <br />Just as you can vote for different categories, we keep track
             of the separate rankings for each category.
           </CardText>
         </CardBody>
       </Card>
       <Card className="about-card-div my-3">
-        <CardHeader className="blue-header-background">
+        <CardHeader className="header-background">
           Skipping a matchup
         </CardHeader>
         <CardBody>
@@ -72,9 +71,7 @@ const About = () => (
       </Card>
 
       <Card className="about-card-div my-3">
-        <CardHeader className="maroon-header-background">
-          A fair system
-        </CardHeader>
+        <CardHeader className="header-background">A fair system</CardHeader>
         <CardBody>
           <CardText>
             While you may wish to be able to choose the restaurants you can vote
@@ -86,7 +83,7 @@ const About = () => (
       </Card>
 
       <Card className="about-card-div my-3">
-        <CardHeader className="blue-header-background">Contact us</CardHeader>
+        <CardHeader className="header-background">Contact us</CardHeader>
         <CardBody>
           <CardText>
             Want to make sure your restaurant is listed on our site, or have any
@@ -104,7 +101,7 @@ const About = () => (
     <Container className="desktop-masonry">
       <CardColumns>
         <Card className="about-card-div">
-          <CardHeader className="maroon-header-background">
+          <CardHeader className="header-background">
             Pick your favorite restaurant
           </CardHeader>
           <CardBody>
@@ -118,7 +115,7 @@ const About = () => (
           </CardBody>
         </Card>
         <Card className="about-card-div">
-          <CardHeader className="blue-header-background">
+          <CardHeader className="header-background">
             Skipping a matchup
           </CardHeader>
           <CardBody>
@@ -136,7 +133,7 @@ const About = () => (
           </CardBody>
         </Card>
         <Card className="about-card-div">
-          <CardHeader className="blue-header-background">
+          <CardHeader className="header-background">
             Choose from different categories
           </CardHeader>
           <CardBody>
@@ -148,9 +145,7 @@ const About = () => (
           </CardBody>
         </Card>
         <Card className="about-card-div">
-          <CardHeader className="maroon-header-background">
-            A fair system
-          </CardHeader>
+          <CardHeader className="header-background">A fair system</CardHeader>
           <CardBody>
             <CardText>
               While you may wish to be able to choose the restaurants you can
@@ -161,22 +156,23 @@ const About = () => (
           </CardBody>
         </Card>
         <Card className="about-card-div">
-          <CardHeader className="maroon-header-background">
+          <CardHeader className="header-background">
             View the rankings
           </CardHeader>
           <CardBody>
             <CardText>
-              Using an Elo rating system, we dynamically rank Portland
-              restaurants in real-time based on all of your votes. Although we
-              keep track of the rankings for all restaurants, only the best make
-              it to the 'Tasty 20' listings.<br />
+              Using an Elo rating system (the same system used to rank chess
+              players), we dynamically rank Portland restaurants in real-time
+              based on all of your votes. Although we keep track of the rankings
+              for all restaurants, only the best make it to the 'Tasty 20'
+              listings.<br />
               <br />Just as you can vote for different categories, we keep track
               of the separate rankings for each category.
             </CardText>
           </CardBody>
         </Card>
         <Card className="about-card-div">
-          <CardHeader className="blue-header-background">Contact us</CardHeader>
+          <CardHeader className="header-background">Contact us</CardHeader>
           <CardBody>
             <CardText>
               Want to make sure your restaurant is listed on our site, or have
