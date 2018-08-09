@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
 import {
   fetchMatchupData,
   calcMatchupWinner,
@@ -29,10 +30,7 @@ class Voting extends Component {
                 let selectedItem = document.getElementById(
                   "selectRankingCategory"
                 ).value;
-                this.props.fetchMatchupData(
-                  selectedItem,
-                  this.props.removedRestaurants
-                );
+                this.props.fetchMatchupData(selectedItem);
                 this.setState({ category: selectedItem });
               }}
             >
@@ -74,6 +72,16 @@ class Voting extends Component {
       );
     }
 
+    if (
+      _.includes(
+        this.props.removedRestaurants,
+        this.props.matchupData[0]._id
+      ) ||
+      _.includes(this.props.removedRestaurants, this.props.matchupData[1]._id)
+    ) {
+      this.props.fetchMatchupData(`${this.state.category}`);
+    }
+
     return (
       <Container>
         <Jumbotron id="votingJumbotron" fluid>
@@ -93,10 +101,7 @@ class Voting extends Component {
                       this.props.matchupData[1]._id,
                       this.state.category
                     );
-                    this.props.fetchMatchupData(
-                      `${this.state.category}`,
-                      `${this.props.removedRestaurants}`
-                    );
+                    this.props.fetchMatchupData(`${this.state.category}`);
                   }}
                 >
                   {this.props.matchupData[0].name}
@@ -118,10 +123,7 @@ class Voting extends Component {
                       this.props.matchupData[0]._id,
                       this.state.category
                     );
-                    this.props.fetchMatchupData(
-                      `${this.state.category}`,
-                      `${this.props.removedRestaurants}`
-                    );
+                    this.props.fetchMatchupData(`${this.state.category}`);
                   }}
                 >
                   {this.props.matchupData[1].name}
@@ -141,10 +143,7 @@ class Voting extends Component {
                   className="mt-4"
                   id="skipMatchup"
                   onClick={() =>
-                    this.props.fetchMatchupData(
-                      this.state.category,
-                      this.props.removedRestaurants
-                    )
+                    this.props.fetchMatchupData(this.state.category)
                   }
                 >
                   Skip Matchup
@@ -171,10 +170,7 @@ class Voting extends Component {
               let selectedItem = document.getElementById(
                 "selectRankingCategory"
               ).value;
-              this.props.fetchMatchupData(
-                selectedItem,
-                this.props.removedRestaurants
-              );
+              this.props.fetchMatchupData(selectedItem);
               this.setState({ category: selectedItem });
             }}
           >
