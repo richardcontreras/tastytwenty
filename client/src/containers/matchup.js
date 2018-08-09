@@ -19,72 +19,68 @@ class Matchup extends Component {
     }
 
     return (
-      <div>
-        <Row>
-          <Col md={{ size: 12, offset: 0 }}>
-            <Jumbotron fluid>
-              <Container className="text-center" fluid>
+      <Container>
+        <Jumbotron id="votingJumbotron" fluid>
+          <Container className="text-center" fluid>
+            <Row>
+              <Col md={{ size: 12, offset: 0 }}>
                 <h1 className="display-3">Best {this.props.matchupHeader}</h1>
-                <p className="lead">
+              </Col>
+              <Col md={{ size: 4, offset: 1 }} className="text-center">
+                <button
+                  className="voting-div-background choice-div"
+                  onClick={() => {
+                    this.props.calcMatchupWinner(
+                      this.props.matchupData[0][`${this.props.category}`].elo,
+                      this.props.matchupData[0]._id,
+                      this.props.matchupData[1][`${this.props.category}`].elo,
+                      this.props.matchupData[1]._id,
+                      this.props.category
+                    );
+                    this.props.fetchMatchupData(this.props.category);
+                  }}
+                >
+                  {this.props.matchupData[0].name}
+                </button>
+              </Col>
+              <Col md={{ size: 2, offset: 0 }}>
+                <p className="lead mt-4">
                   Vote for the best {this.props.matchupHeader.toLowerCase()} in
                   Portland.
                 </p>
-              </Container>
-            </Jumbotron>
-          </Col>
-          <Col md={{ size: 2, offset: 2 }}>
-            <div className="choice-div text-center">
-              <button
-                className="voting-div-background"
-                onClick={() => {
-                  this.props.calcMatchupWinner(
-                    this.props.matchupData[0][`${this.props.category}`].elo,
-                    this.props.matchupData[0]._id,
-                    this.props.matchupData[1][`${this.props.category}`].elo,
-                    this.props.matchupData[1]._id,
-                    this.props.category
-                  );
-                  this.props.fetchMatchupData(this.props.category);
-                }}
-              >
-                {this.props.matchupData[0].name}
-              </button>
-            </div>
-          </Col>
-          <Col md={{ size: 1, offset: 1 }}>
-            <h3 id="versusH3">vs.</h3>
-          </Col>
-          <Col md={{ size: 2, offset: 2 }}>
-            <div className="choice-div text-center">
-              <button
-                className="voting-div-background"
-                onClick={() => {
-                  this.props.calcMatchupWinner(
-                    this.props.matchupData[1][`${this.props.category}`].elo,
-                    this.props.matchupData[1]._id,
-                    this.props.matchupData[0][`${this.props.category}`].elo,
-                    this.props.matchupData[0]._id,
-                    this.props.category
-                  );
-                  this.props.fetchMatchupData(this.props.category);
-                }}
-              >
-                {this.props.matchupData[1].name}
-              </button>
-            </div>
-          </Col>
-          <Col md={{ size: 6, offset: 5 }}>
-            <div>
-              <button
-                id="skipMatchup"
-                onClick={() => this.props.fetchMatchupData(this.props.category)}
-              >
-                Skip Matchup
-              </button>
-            </div>
-          </Col>
-        </Row>
-      </div>
+              </Col>
+              <Col md={{ size: 4, offset: 0 }} className="text-center">
+                <button
+                  className="voting-div-background choice-div"
+                  onClick={() => {
+                    this.props.calcMatchupWinner(
+                      this.props.matchupData[1][`${this.props.category}`].elo,
+                      this.props.matchupData[1]._id,
+                      this.props.matchupData[0][`${this.props.category}`].elo,
+                      this.props.matchupData[0]._id,
+                      this.props.category
+                    );
+                    this.props.fetchMatchupData(this.props.category);
+                  }}
+                >
+                  {this.props.matchupData[1].name}
+                </button>
+              </Col>
+              <Col md={{ size: 12, offset: 0 }}>
+                <button
+                  className="mt-4"
+                  id="skipMatchup"
+                  onClick={() =>
+                    this.props.fetchMatchupData(this.props.category)
+                  }
+                >
+                  Skip Matchup
+                </button>
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
+      </Container>
     );
   }
 }

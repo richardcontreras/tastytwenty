@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchRankings } from "../actions/index";
 import { bindActionCreators } from "redux";
+import { Container } from "reactstrap";
 
 class Rankings extends Component {
   componentDidMount() {
@@ -26,11 +27,11 @@ class Rankings extends Component {
     }
 
     return (
-      <div>
+      <Container>
         <h1>Best {this.props.rankingsHeader} Rankings:</h1>
-        <p>Rating in parentheses after each restaurant name</p>
+        <p>(Click on any restaurant to visit their website)</p>
         <ol>{this.renderList()}</ol>
-      </div>
+      </Container>
     );
   }
 }

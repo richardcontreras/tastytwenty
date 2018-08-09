@@ -49,12 +49,22 @@ body {
   box-shadow: 1.5px 1.5px 5px gray;
 }
 .maroon-header-background {
-  background-color: #8d1f5e;
+  background: linear-gradient(to bottom right, #8d1f5e, #cd2d89, #8d1f5e);
   color: white;
 }
 
 .blue-header-background {
-  background-color: #003f74;
+  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
+  color: white;
+}
+
+#votingTab {
+  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
+  color: white;
+}
+
+#rankingsTab {
+  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
   color: white;
 }
 
@@ -68,11 +78,11 @@ body {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 2.5px 0px #c4c4c4;
-  -moz-box-shadow: 0px 2.5px 0px #c4c4c4;
-  -ms-box-shadow: 0px 2.5px 0px #c4c4c4;
-  -o-box-shadow: 0px 2.5px 0px #c4c4c4;
-  box-shadow: 0px 2.5px 0px #c4c4c4;
+  -webkit-box-shadow: 0px 2.5px 0px #3d3d3d;
+  -moz-box-shadow: 0px 2.5px 0px #3d3d3d;
+  -ms-box-shadow: 0px 2.5px 0px #3d3d3d;
+  -o-box-shadow: 0px 2.5px 0px #3d3d3d;
+  box-shadow: 0px 2.5px 0px #3d3d3d;
   color: #222;
   -webkit-transition: All 100ms ease;
   -moz-transition: All 100ms ease;
@@ -96,6 +106,13 @@ body {
   transition: All 100ms ease;
 }
 
+#votingJumbotron {
+  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
+  color: white;
+  border: 1px solid black;
+  box-shadow: 1.5px 1.5px 5px gray;
+}
+
 .voting-div-background:focus {
   outline: 0;
 }
@@ -105,19 +122,8 @@ body {
   padding: 20px;
 }
 
-#versusH3 {
-  margin-top: auto;
-  border: 1px solid black;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  padding-top: 6px;
-  padding-left: 1px;
-  box-shadow: 1.5px 1.5px gray;
-}
 #skipMatchup {
-  margin: 10px 0 0 10px;
-  background-color: transparent;
+  background-color: white;
 }
 
 #skipMatchup:focus {
@@ -136,7 +142,7 @@ ol {
 .rankingListItem:before {
   margin-right: 10px;
   content: counter(item);
-  background: #003f74;
+  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
   border-radius: 100%;
   color: white;
   width: 1.2em;
@@ -146,11 +152,6 @@ ol {
 
 #nameInRankings {
   color: black;
-}
-
-#versusH3 {
-  margin-top: 47%;
-  text-align: center;
 }
 
 @media screen and (min-width: 576px) {
