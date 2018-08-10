@@ -8,7 +8,7 @@ class Rankings extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { category: null };
+    this.state = { category: "overall" };
   }
 
   renderList() {
@@ -39,6 +39,21 @@ class Rankings extends Component {
                 ).value;
                 this.props.fetchRankings(selectedItem);
                 this.setState({ category: selectedItem });
+                if (selectedItem === "bbq") {
+                  this.setState({ category: "BBQ" });
+                }
+                if (selectedItem === "fastfood") {
+                  this.setState({ category: "Fast Food" });
+                }
+                if (selectedItem === "foodtruck") {
+                  this.setState({ category: "Food Truck" });
+                }
+                if (selectedItem === "dimsum") {
+                  this.setState({ category: "Dim Sum" });
+                }
+                if (selectedItem === "icecream") {
+                  this.setState({ category: "Ice Cream" });
+                }
               }}
             >
               <option>Select a category</option>
@@ -87,16 +102,6 @@ class Rankings extends Component {
             this.state.category.slice(1)}{" "}
           Rankings:
         </h1>
-        <p>
-          The number in parentheses is a restaurant's{" "}
-          <a
-            id="eloRatingText"
-            href="https://en.wikipedia.org/wiki/Elo_rating_system"
-            target="_blank"
-          >
-            Elo rating
-          </a>
-        </p>
         <p>Click on any restaurant to visit their website</p>
         <FormGroup>
           <Input
@@ -109,6 +114,21 @@ class Rankings extends Component {
               ).value;
               this.props.fetchRankings(selectedItem);
               this.setState({ category: selectedItem });
+              if (selectedItem === "bbq") {
+                this.setState({ category: "BBQ" });
+              }
+              if (selectedItem === "fastfood") {
+                this.setState({ category: "Fast Food" });
+              }
+              if (selectedItem === "foodtruck") {
+                this.setState({ category: "Food Truck" });
+              }
+              if (selectedItem === "dimsum") {
+                this.setState({ category: "Dim Sum" });
+              }
+              if (selectedItem === "icecream") {
+                this.setState({ category: "Ice Cream" });
+              }
             }}
           >
             <option>Select a category</option>

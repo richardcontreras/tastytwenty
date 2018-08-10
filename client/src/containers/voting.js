@@ -107,7 +107,11 @@ class Voting extends Component {
           <Container className="text-center" fluid>
             <Row>
               <Col md={{ size: 12, offset: 0 }}>
-                <h1 className="display-3">Best {this.state.category}</h1>
+                <h1 id="votingJumbotronHeader" className="display-3">
+                  Best{" "}
+                  {this.state.category.charAt(0).toUpperCase() +
+                    this.state.category.slice(1)}
+                </h1>
               </Col>
               <Col md={{ size: 4, offset: 1 }} className="text-center">
                 <button
@@ -126,9 +130,22 @@ class Voting extends Component {
                   {this.props.matchupData[0].name}
                 </button>
               </Col>
+              <Col
+                xs={{ size: 12, offset: 0 }}
+                className="text-center remove-restaurant-button-top-mobile"
+              >
+                <button
+                  className="remove-restaurant-button-top-mobile"
+                  onClick={() =>
+                    this.props.removeRestaurant(this.props.matchupData[0]._id)
+                  }
+                >
+                  Don't show this restaurant again
+                </button>
+              </Col>
               <Col md={{ size: 2, offset: 0 }}>
-                <p className="lead mt-4">
-                  Vote for the best {this.state.category} in Portland.
+                <p className="lead mt-3">
+                  Vote for the best {this.state.category} in Portland
                 </p>
               </Col>
               <Col md={{ size: 4, offset: 0 }} className="text-center">
@@ -148,16 +165,32 @@ class Voting extends Component {
                   {this.props.matchupData[1].name}
                 </button>
               </Col>
+            </Row>
+            <Row>
               <Col md={{ size: 4, offset: 1 }} className="text-center">
                 <button
+                  className="remove-restaurant-button remove-restaurant-buttom-left-desktop"
                   onClick={() =>
                     this.props.removeRestaurant(this.props.matchupData[0]._id)
                   }
                 >
-                  Don't see this restaurant again
+                  Don't show this restaurant again
                 </button>
               </Col>
-              <Col md={{ size: 2, offset: 0 }}>
+
+              <Col md={{ size: 4, offset: 2 }} className="text-center">
+                <button
+                  className="remove-restaurant-button"
+                  onClick={() =>
+                    this.props.removeRestaurant(this.props.matchupData[1]._id)
+                  }
+                >
+                  Don't show this restaurant again
+                </button>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={{ size: 2, offset: 5 }}>
                 <button
                   className="mt-4"
                   id="skipMatchup"
@@ -166,15 +199,6 @@ class Voting extends Component {
                   }
                 >
                   Skip Matchup
-                </button>
-              </Col>
-              <Col md={{ size: 4, offset: 1 }} className="text-center">
-                <button
-                  onClick={() =>
-                    this.props.removeRestaurant(this.props.matchupData[1]._id)
-                  }
-                >
-                  Don't see this restaurant again
                 </button>
               </Col>
             </Row>

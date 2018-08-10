@@ -49,16 +49,6 @@ body {
   color: white;
 }
 
-#votingTab {
-  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
-  color: white;
-}
-
-#rankingsTab {
-  background: linear-gradient(to bottom right, #003f74, #005faf, #003f74);
-  color: white;
-}
-
 .choice-div {
   display: inline-block;
   position: relative;
@@ -104,6 +94,10 @@ body {
   box-shadow: 1.5px 1.5px 5px gray;
 }
 
+#votingJumbotronHeader {
+  font-size: 3.25rem;
+}
+
 .voting-div-background:focus {
   outline: 0;
 }
@@ -115,6 +109,24 @@ body {
 
 #skipMatchup {
   background: linear-gradient(to bottom right, #989898, #f0f0f0, #989898);
+}
+
+.remove-restaurant-button-top-mobile {
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-decoration: underline;
+}
+
+.remove-restaurant-buttom-left-desktop {
+  display: none;
+}
+
+.remove-restaurant-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-decoration: underline;
 }
 
 #skippingBlockedRestaurant {
@@ -198,6 +210,14 @@ ol {
 
   .desktop-masonry {
     display: block;
+  }
+
+  .remove-restaurant-button-top-mobile {
+    display: none;
+  }
+
+  .remove-restaurant-buttom-left-desktop {
+    display: inline-block;
   }
 }
 
